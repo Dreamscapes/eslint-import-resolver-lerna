@@ -1,0 +1,32 @@
+{
+  "name": "eslint-import-resolver-lerna",
+  "description": "Resolver for Lerna-based projects for eslint-plugin-import",
+  "version": "1.0.0",
+  "author": "Robert Rossmann <rr.rossmann@me.com>",
+  "bugs": "https://github.com/Dreamscapes/eslint-import-resolver-lerna/issues",
+  "contributors": [],
+  "dependencies": {},
+  "devDependencies": {
+    "@strv/eslint-config-javascript": "^7.8.0",
+    "eslint": "^4.9.0",
+    "remark-cli": "^4.0.0",
+    "remark-preset-lint-consistent": "^2.0.1",
+    "remark-preset-lint-markdown-style-guide": "^2.1.1",
+    "remark-preset-lint-recommended": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "homepage": "https://www.npmjs.com/package/eslint-import-resolver-lerna",
+  "keywords": [
+    "eslint-plugin-import",
+    "lerna",
+    "resolver"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "src",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Dreamscapes/eslint-import-resolver-lerna.git"
+  }
+}
