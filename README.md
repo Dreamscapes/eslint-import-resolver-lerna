@@ -1,5 +1,8 @@
 # eslint-import-resolver-lerna
 
+[![Build Status][travis-badge]][travis-home]
+![Built with GNU Make][make-badge]
+
 This resolver can be used together with [`eslint-plugin-import`][eslint-plugin-import-home] package to help it find modules in your Lerna-based monorepo.
 
 ## When you might need this
@@ -40,3 +43,6 @@ module.exports = {
 See the [LICENSE](LICENSE) file for information.
 
 [eslint-plugin-import-home]: https://github.com/benmosher/eslint-plugin-import
+[travis-badge]: https://img.shields.io/travis/Dreamscapes/eslint-import-resolver-lerna.svg?style=flat-square
+[travis-home]: https://travis-ci.org/Dreamscapes/eslint-import-resolver-lerna
+[make-badge]: https://img.shields.io/badge/Built%20with-GNU%20Make-brightgreen.svg?style=flat-square
