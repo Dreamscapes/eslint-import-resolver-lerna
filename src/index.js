@@ -8,21 +8,25 @@ const path = require('path')
 const interfaceVersion = 2
 
 function resolve(importpath, caller, config = {}) {
-  const packages = config.packages
+  const directories = Array.isArray(config.packages)
+    ? config.packages
+    : [config.packages]
   const basename = pkgbasename(importpath)
   const index = new Map()
 
   // Populate the index with the package names this monorepo contains
-  fs
-    .readdirSync(packages)
-    .map(filename => path.resolve(packages, filename))
-    .filter(filename => fs.statSync(filename).isDirectory())
-    .forEach(filename => {
+  directories.forEach(directory => {
+    fs
+      .readdirSync(directory)
+      .map(filename => path.resolve(directory, filename))
+      .filter(filename => fs.statSync(filename).isDirectory())
+      .forEach(filename => {
       // eslint-disable-next-line global-require
-      const pkg = require(path.resolve(filename, 'package'))
+        const pkg = require(path.resolve(filename, 'package'))
 
-      index.set(pkg.name, filename)
-    })
+        index.set(pkg.name, filename)
+      })
+  })
 
   return index.has(basename)
     ? { found: true, path: index.get(basename) }
