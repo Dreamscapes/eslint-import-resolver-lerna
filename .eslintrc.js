@@ -2,9 +2,9 @@
 
 module.exports = {
   extends: [
-    '@strv/javascript/environments/nodejs/v8-3',
-    '@strv/javascript/environments/nodejs/optional',
-    '@strv/javascript/coding-styles/recommended',
+    '@strv/node/v10',
+    '@strv/node/optional',
+    '@strv/node/style',
   ],
 
   rules: {

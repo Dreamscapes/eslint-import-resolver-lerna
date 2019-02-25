@@ -20,6 +20,7 @@ function resolve(importpath, caller, config = {}) {
     .forEach(filename => {
       // eslint-disable-next-line global-require
       const pkg = require(path.resolve(filename, 'package'))
+
       index.set(pkg.name, filename)
     })
 

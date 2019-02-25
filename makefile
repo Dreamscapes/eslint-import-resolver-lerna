@@ -22,7 +22,7 @@ node_modules: package.json
 install: node_modules
 
 lint: install force
-	eslint --ext .mjs --report-unused-disable-directives $(lintflags) .
+	eslint --report-unused-disable-directives $(lintflags) .
 	remark --quiet .
 
 clean: force
