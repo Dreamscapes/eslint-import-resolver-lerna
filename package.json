@@ -1,7 +1,7 @@
 {
   "name": "eslint-import-resolver-lerna",
   "description": "Resolver for Lerna-based projects for eslint-plugin-import",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Robert Rossmann <rr.rossmann@me.com>",
   "bugs": "https://github.com/Dreamscapes/eslint-import-resolver-lerna/issues",
   "contributors": [],
