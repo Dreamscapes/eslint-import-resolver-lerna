@@ -26,7 +26,9 @@ function resolve(importpath, caller, config = {}) {
           const pkg = require(path.resolve(filename, 'package'))
 
           index.set(pkg.name, filename)
-        } catch(err) {}
+        } catch (err) {
+          // package.json doesn't exist, do nothing
+        }
       })
   })
 
