@@ -22,7 +22,9 @@ This plugin will look in your _packages_ directory and generate a list of all th
 
 ## Usage
 
-This resolver accepts only one configuration option: `packages` (string or array of strings, required) which must be an absolute path to Lerna's _packages_ directory or an array of such absolute paths.
+This resolver accepts two configuration options:
+
+`packages` (string or array of strings, required) which must be an absolute path to Lerna's _packages_ directory or an array of such absolute paths.
 
 ```js
 // .eslintrc.js
@@ -33,6 +35,24 @@ module.exports = {
     'import/resolver': {
       'eslint-import-resolver-lerna': {
         packages: path.resolve(__dirname, 'src/packages')
+      }
+    }
+  }
+}
+```
+
+`ignore` (array of string regex) which will be used to ignore folders that isn't a package.
+
+```js
+// .eslintrc.js
+const path = require('path')
+
+module.exports = {
+  settings: {
+    'import/resolver': {
+      'eslint-import-resolver-lerna': {
+        packages: path.resolve(__dirname, 'src/packages'),
+        ignore: ['(helpers|setups)']
       }
     }
   }
