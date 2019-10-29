@@ -8,6 +8,7 @@ const path = require('path')
 const interfaceVersion = 2
 
 function resolve(importpath, caller, config = {}) {
+  const ignore = config.ignore || []
   const directories = Array.isArray(config.packages)
     ? config.packages
     : [config.packages]
@@ -19,7 +20,11 @@ function resolve(importpath, caller, config = {}) {
     fs
       .readdirSync(directory)
       .map(filename => path.resolve(directory, filename))
-      .filter(filename => fs.statSync(filename).isDirectory())
+      .filter(filename => {
+        const isDirectory = fs.statSync(filename).isDirectory()
+        const notIgnored = ignore.every(regex => !new RegExp(regex, 'ug').test(filename))
+        return isDirectory && notIgnored
+      })
       .forEach(filename => {
       // eslint-disable-next-line global-require
         const pkg = require(path.resolve(filename, 'package'))
