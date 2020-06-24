@@ -22,9 +22,11 @@ function resolve(importpath, caller, config = {}) {
       .filter(filename => fs.statSync(filename).isDirectory())
       .forEach(filename => {
       // eslint-disable-next-line global-require
-        const pkg = require(path.resolve(filename, 'package'))
+      	try {
+	        const pkg = require(path.resolve(filename, 'package'))
 
-        index.set(pkg.name, filename)
+	        index.set(pkg.name, filename)
+				} catch () {}
       })
   })
 
