@@ -1,0 +1,34 @@
+---
+name: Continuous Deployment
+
+on:
+  push:
+    branches:
+      - release/*
+
+jobs:
+  release:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 10
+    env:
+      CI: 'true'
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+
+      - run: make install
+      - run: make compile
+      - name: Semantic Release
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Post-release sync
+        run: ./utils/ci/sync.sh
+        if: success()

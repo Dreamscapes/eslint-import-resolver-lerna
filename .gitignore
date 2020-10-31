@@ -7,6 +7,15 @@ node_modules
 .npmrc
 local.mk
 
+# Compiled files
+**/*.js
+**/*.js.map
+**/*.d.ts
+**/*.d.ts.map
+!*.config.js
+!**/.*.js
+!src/resolve/.fixtures/**/*.js
+
 # Generated files
 .nvmrc
 docs
@@ -20,7 +29,7 @@ gh-pages
 *#
 .DS_Store
 .nyc_output
-.eslintcache
+.buildstate
 
 # IDE stuff
 .netbeans
@@ -30,4 +39,3 @@ nbproject
 *.sublime-*
 *.atom-*
 .tern-*
-jsconfig.json

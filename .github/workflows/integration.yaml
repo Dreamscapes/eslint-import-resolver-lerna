@@ -1,0 +1,60 @@
+---
+name: Continuous Integration
+
+on:
+  push:
+
+jobs:
+  verify:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-20.04
+          - macos-10.15
+          - windows-2019
+        node:
+          - 12
+          - 14
+
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    env:
+      CI: 'true'
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - run: make install
+      - run: make compile
+
+      - name: ESLint
+        run: make lint
+      - name: Tests
+        run: make test
+  # TODO: Perhaps enable later
+  # coverage:
+  #   runs-on: ubuntu-20.04
+  #   timeout-minutes: 10
+  #   env:
+  #     CI: 'true'
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0
+  #     - uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 14
+  #     - run: make install
+  #     - run: make compile
+  #     - run: make coverage
+  #     - uses: devmasx/coverage-check-action@v1.1.0
+  #       with:
+  #         type: lcov
+  #         result_path: coverage/lcov.info
+  #         min_coverage: 90
+  #         token: ${{ secrets.GITHUB_TOKEN }}

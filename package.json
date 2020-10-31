@@ -7,15 +7,27 @@
   "contributors": [],
   "dependencies": {},
   "devDependencies": {
-    "@strv/eslint-config-node": "^0.1.1-alpha.0",
-    "eslint": "^5.14.0",
-    "remark-cli": "^6.0.0",
-    "remark-preset-lint-consistent": "^2.0.1",
-    "remark-preset-lint-markdown-style-guide": "^2.1.1",
-    "remark-preset-lint-recommended": "^3.0.1"
+    "@commitlint/cli": "^11.0.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@strv/commitlint-config": "^2.0.0-alpha.0",
+    "@strv/eslint-config-mocha": "^3.0.0-alpha.2",
+    "@strv/eslint-config-node": "^3.0.0-alpha.3",
+    "@strv/eslint-config-typescript": "^3.0.0-alpha.4",
+    "@strv/remark-config": "^1.0.2",
+    "@types/chai": "^4.2.14",
+    "@types/mocha": "^8.0.3",
+    "@types/node": "^14.14.6",
+    "chai": "^4.2.0",
+    "eslint": "^7.12.1",
+    "mocha": "^8.2.0",
+    "remark-cli": "^9.0.0",
+    "semantic-release": "^17.2.2",
+    "source-map-support": "^0.5.19",
+    "typescript": "^4.0.5"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=12"
   },
   "homepage": "https://www.npmjs.com/package/eslint-import-resolver-lerna",
   "keywords": [

@@ -1,0 +1,26 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.tabSize": 2,
+  "eslint.lintTask.enable": true,
+  "eslint.lintTask.options": "--cache --cache-location .buildstate/.eslintcache --ext js,ts .",
+  "files.exclude": {
+    "**/*.d.ts": {
+      "when": "$(basename).ts"
+    },
+    "**/*.d.ts.map": true,
+    "**/*.js": {
+      "when": "$(basename).ts"
+    },
+    "**/.DS_Store": true,
+    "**/.git": true,
+    ".buildstate": true
+  },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "mochaExplorer.files": "{src,test}/**/*.test.js",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
