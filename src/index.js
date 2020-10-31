@@ -20,9 +20,10 @@ function resolve(importpath, caller, config = {}) {
       .readdirSync(directory)
       .map(filename => path.resolve(directory, filename))
       .filter(filename => fs.statSync(filename).isDirectory())
+      .filter(filename => fs.existsSync(path.join(filename, 'package.json')))
       .forEach(filename => {
       // eslint-disable-next-line global-require
-        const pkg = require(path.resolve(filename, 'package'))
+        const pkg = require(path.resolve(filename, 'package.json'))
 
         index.set(pkg.name, filename)
       })
